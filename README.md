@@ -1,6 +1,6 @@
 ## 🔎 What's inside?
 
-A quick look at the top-level files and directories included with this template.
+A quick look at the top-level files and directories.
 
     .
     ├── .storybook
@@ -13,7 +13,7 @@ A quick look at the top-level files and directories included with this template.
     ├── yarn.lock
     └── README.md
 
-1.  **`node_modules`**: This directory contains all of the storybook configuration for the application.
+1.  **`.storybook`**: This directory contains all of the storybook configuration for the application.
 
 2.  **`public`**: This directory will contain the development and production build of the site.
 
