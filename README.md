@@ -3,7 +3,7 @@
 A quick look at the top-level files and directories included with this template.
 
     .
-    ├── node_modules
+    ├── .storybook
     ├── public
     ├── src
     ├── .gitignore
@@ -13,7 +13,7 @@ A quick look at the top-level files and directories included with this template.
     ├── yarn.lock
     └── README.md
 
-1.  **`node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages).
+1.  **`node_modules`**: This directory contains all of the storybook configuration for the application.
 
 2.  **`public`**: This directory will contain the development and production build of the site.
 
