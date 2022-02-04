@@ -32,6 +32,12 @@ const ListItem = styled.a`
   &:hover {
     text-decoration: revert;
   }
+
+  &[aria-current="page"] {
+    text-decoration: none;
+    color: #000;
+    font-weight: 700;
+  }
 `;
 
 const Crumb = ({ href, isCurrentPage, children }) => {
@@ -52,15 +58,12 @@ const Breadcrumbs = ({ children }) => {
   );
 };
 
-const BreadCrumb = () => {
+const BreadCrumb = ({ crumbList }) => {
   return (
     <Breadcrumbs>
-      <Crumb href="/">Home</Crumb>
-      <Crumb href="/living">Living Room</Crumb>
-      <Crumb href="/living/couch">Couches</Crumb>
-      <Crumb href="/living/couch/sectional" isCurrentPage={true}>
-        Sectionals
-      </Crumb>
+      {crumbList.map(({ isCurrent, page, href }) => (
+        <Crumb isCurrentPage={isCurrent} children={page} href={href} />
+      ))}
     </Breadcrumbs>
   );
 };
