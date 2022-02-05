@@ -7,9 +7,15 @@ export default {
 };
 
 export const AllButtons = () => (
-  <div>
-    <Button variant="fill" size="small" children="Submit" />
-    <Button variant="outline" size="small" children="Back" />
-    <Button variant="ghost" size="small" children="Submit" />
+  <div style={{ display: "flex", alignItems: "center" }}>
+    <div style={{ margin: 12 }}>
+      <Button size="small">Submit</Button>
+    </div>
+    <div style={{ margin: 12 }}>
+      <Button size="medium">Submit</Button>
+    </div>
+    <div style={{ margin: 12 }}>
+      <Button size="large">Submit</Button>
+    </div>
   </div>
 );
