@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { COLORS } from "./utils/base-theme";
+import { COLORS } from "../../utils/base-theme";
 
 const SIZES = {
   small: {
