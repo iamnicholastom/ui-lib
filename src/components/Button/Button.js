@@ -6,17 +6,17 @@ const SIZES = {
   small: {
     "--borderRadius": 2 + "px",
     "--fontSize": 16 / 16 + "rem",
-    "--padding": "8px 16px",
+    "--padding": "4px 12px",
   },
   medium: {
     "--borderRadius": 2 + "px",
     "--fontSize": 18 / 16 + "rem",
-    "--padding": "16px 24px",
+    "--padding": "12px 20px",
   },
   large: {
     "--borderRadius": 4 + "px",
     "--fontSize": 21 / 16 + "rem",
-    "--padding": "20px 36px",
+    "--padding": "16px 32px",
   },
 };
 
@@ -25,14 +25,35 @@ const DefaultButton = styled.button`
   font-family: "Roboto", sans-serif;
   padding: var(--padding);
   border-radius: var(--borderRadius);
-  border: none;
+  border: 2px solid transparent;
+`;
+
+const Button = ({ size, variant, children }) => {
+  const styles = SIZES[size];
+  let Component;
+  if (variant === "fill") {
+    Component = FillButton;
+  } else if (variant === "outline") {
+    Component = OutlineButton;
+  } else {
+    Component = GhostButton;
+  }
+  return <Component style={styles}>{children}</Component>;
+};
+
+const FillButton = styled(DefaultButton)`
   background-color: ${COLORS.primary};
   color: ${COLORS.white};
 `;
 
-const Button = ({ size, children }) => {
-  const styles = SIZES[size];
-  return <DefaultButton style={styles}>{children}</DefaultButton>;
-};
+const OutlineButton = styled(DefaultButton)`
+  background-color: ${COLORS.white};
+  color: ${COLORS.primary};
+  border: 2px solid currentColor;
+`;
+
+const GhostButton = styled(DefaultButton)`
+  border: 2px solid currentColor;
+`;
 
 export { Button };

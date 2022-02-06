@@ -6,6 +6,44 @@ export default {
   component: Button,
 };
 
-export const Primary = () => <Button size="small">Submit</Button>;
-export const Outline = () => <Button size="medium">Submit</Button>;
-export const Ghost = () => <Button size="large">Submit</Button>;
+export const Primary = () => (
+  <div>
+    <Button size="small" variant="fill">
+      Submit
+    </Button>
+    <Button size="medium" variant="fill">
+      Submit
+    </Button>
+    <Button size="large" variant="fill">
+      Submit
+    </Button>
+  </div>
+);
+
+export const Outline = () => (
+  <div>
+    <Button size="small" variant="outline">
+      Submit
+    </Button>
+    <Button size="medium" variant="outline">
+      Submit
+    </Button>
+    <Button size="large" variant="outline">
+      Submit
+    </Button>
+  </div>
+);
+
+export const Ghost = () => (
+  <div>
+    <Button size="small" variant="ghost">
+      Submit
+    </Button>
+    <Button size="medium" variant="ghost">
+      Submit
+    </Button>
+    <Button size="large" variant="ghost">
+      Submit
+    </Button>
+  </div>
+);
