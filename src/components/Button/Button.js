@@ -20,40 +20,67 @@ const SIZES = {
   },
 };
 
+const Button = ({ size, variant, children }) => {
+  const styles = SIZES[size];
+
+  let Component;
+  if (variant === "fill") {
+    Component = FillButton;
+  } else if (variant === "outline") {
+    Component = OutlineButton;
+  } else if (variant === "ghost") {
+    Component = GhostButton;
+  } else {
+    throw new Error(`Unrecognized Button variant: ${variant}`);
+  }
+
+  return <Component style={styles}>{children}</Component>;
+};
+
 const DefaultButton = styled.button`
   font-size: var(--fontSize);
   font-family: "Roboto", sans-serif;
   padding: var(--padding);
   border-radius: var(--borderRadius);
   border: 2px solid transparent;
-`;
 
-const Button = ({ size, variant, children }) => {
-  const styles = SIZES[size];
-  let Component;
-  if (variant === "fill") {
-    Component = FillButton;
-  } else if (variant === "outline") {
-    Component = OutlineButton;
-  } else {
-    Component = GhostButton;
+  &:focus {
+    outline-color: ${COLORS.primary};
+    outline-offset: 4px;
   }
-  return <Component style={styles}>{children}</Component>;
-};
+`;
 
 const FillButton = styled(DefaultButton)`
   background-color: ${COLORS.primary};
   color: ${COLORS.white};
+
+  &:hover {
+    background-color: ${COLORS.primaryLight};
+  }
 `;
 
 const OutlineButton = styled(DefaultButton)`
   background-color: ${COLORS.white};
   color: ${COLORS.primary};
   border: 2px solid currentColor;
+
+  &:hover {
+    background-color: ${COLORS.offwhite};
+  }
 `;
 
 const GhostButton = styled(DefaultButton)`
-  border: 2px solid currentColor;
+  color: ${COLORS.gray};
+  background-color: transparent;
+
+  &:focus {
+    outline-color: ${COLORS.gray};
+  }
+
+  &:hover {
+    background: ${COLORS.transparentGray15};
+    color: ${COLORS.black};
+  }
 `;
 
 export { Button };
