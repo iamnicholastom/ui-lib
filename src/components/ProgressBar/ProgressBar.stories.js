@@ -6,4 +6,7 @@ export default {
   component: ProgressBar,
 };
 
-export const Default = () => <ProgressBar value="99" />;
+export const Default = (args) => <ProgressBar {...args} />;
+Default.args = {
+  value: "99",
+};

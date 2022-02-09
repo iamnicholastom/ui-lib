@@ -29,8 +29,12 @@ const crumbList = [
   },
 ];
 
-export const BreadCrumbs = () => (
+export const BreadCrumbs = (args) => (
   <div>
-    <BreadCrumb crumbList={crumbList} />
+    <BreadCrumb {...args} />
   </div>
 );
+BreadCrumbs.args = {
+  crumbList,
+};
+BreadCrumbs.storyName = "normal";
