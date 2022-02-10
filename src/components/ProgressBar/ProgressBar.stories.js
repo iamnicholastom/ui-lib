@@ -7,6 +7,12 @@ export default {
 };
 
 export const Default = (args) => <ProgressBar {...args} />;
+Default.argTypes = {
+  value: { control: { type: "number", min: 0, max: 100 } },
+  size: { control: { type: "select", options: ["small", "medium", "large"] } },
+};
+
 Default.args = {
-  value: "99",
+  value: 50,
+  size: "medium",
 };
